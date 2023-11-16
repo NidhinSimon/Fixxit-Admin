@@ -103,6 +103,7 @@ const AdminNav = () => {
                     ? "text-blue-500"
                     : "text-black"
                 } `}
+                onClick={()=>navigate('/users')}
               >
                 Users
               </a>
@@ -111,6 +112,7 @@ const AdminNav = () => {
                 className={`mt-2 transition-colors duration-300 transform lg:mt-0 lg:mx-4 hover:text-gray-900 dark:hover:text-gray-200 ${
                   location.pathname === "/dash" ? "text-blue-500" : "text-black"
                 } `}
+                onClick={()=>navigate('/service')}
               >
                 Services
               </a>
@@ -119,6 +121,7 @@ const AdminNav = () => {
                 className={`mt-2 transition-colors duration-300 transform lg:mt-0 lg:mx-4 hover:text-gray-900 dark:hover:text-gray-200 ${
                   location.pathname === "/dash" ? "text-blue-500" : "text-black"
                 } `}
+                onClick={()=>navigate('/categories')}
               >
                 Category
               </a>
@@ -167,6 +170,7 @@ const AdminNav = () => {
                 className={`mt-2 transition-colors duration-300 transform lg:mt-0 lg:mx-4 hover:text-gray-900 dark:hover:text-gray-200 ${
                   location.pathname === "/dash" ? "text-blue-500" : "text-black"
                 } `}
+                onClick={()=>navigate('/reports')}
               >
                 Reports
               </a>
