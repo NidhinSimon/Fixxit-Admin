@@ -11,7 +11,7 @@ const AdminNav = () => {
 
   const handleLogout = async () => {
     const res = await axios.post("https://fixxit.shop/admin/logout");
-
+console.log(res,'--------')
     if (res.data.message === "Logged Out") {
       navigate("/login");
       localStorage.removeItem("adminInfo");
