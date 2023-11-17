@@ -31,7 +31,7 @@ const AdminNav = () => {
             <a href="#">
               <img
                 className="w-auto h-6 sm:h-10"
-                src="/src/assets/final.png"
+                src="/fix.png"
                 alt="eee"
               />
             </a>
