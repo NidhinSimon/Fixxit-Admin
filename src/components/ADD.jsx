@@ -105,7 +105,7 @@ const ADD = () => {
   // };
 
   const { adminInfo } = useSelector((state) => state.admin);
-  const token=adminInfo.token
+  const token=adminInfo.adminToken
   
   
     useEffect(()=>{

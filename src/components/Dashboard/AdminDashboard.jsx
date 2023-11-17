@@ -13,7 +13,7 @@ ChartJS.register(Tooltip, Title, ArcElement, Legend);
 const AdminDashboard = () => {
   const navigate = useNavigate();
   const { adminInfo } = useSelector((state) => state.admin);
-const token=adminInfo.token
+const token=adminInfo.adminToken
 
 
   useEffect(()=>{
