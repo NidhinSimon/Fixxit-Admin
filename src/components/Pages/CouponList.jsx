@@ -45,7 +45,7 @@ const CouponList = () => {
       
         navigate("/login");
     
-        toast.error("Please log in to view this page");
+      
         return;
       }
     },[])

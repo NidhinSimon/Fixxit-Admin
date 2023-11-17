@@ -104,14 +104,14 @@ const AllUsers = () => {
 
   const { adminInfo } = useSelector((state) => state.admin);
   const token=adminInfo.token
-  
+  console.log(token,'00---------------00')
   
     useEffect(()=>{
       if (!adminInfo || !token) {
       
         navigate("/login");
     
-        toast.error("Please log in to view this page");
+      
         return;
       }
     },[])

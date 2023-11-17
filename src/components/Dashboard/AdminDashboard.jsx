@@ -21,7 +21,7 @@ const token=adminInfo.token
     
       navigate("/login");
   
-      toast.error("Please log in to view this page");
+    
       return;
     }
   },[])
