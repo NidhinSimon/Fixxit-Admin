@@ -7,6 +7,7 @@ import * as yup from "yup";
 import { useFormik } from "formik";
 import Spinner from './Spinner';
 import AdminNav from './AdminNav/AdminNav';
+import { useSelector } from "react-redux";
 
 const ADD = () => {
   const [name, setName] = useState('');
@@ -102,6 +103,20 @@ const ADD = () => {
 
    
   // };
+
+  const { adminInfo } = useSelector((state) => state.admin);
+  const token=adminInfo.token
+  
+  
+    useEffect(()=>{
+      if (!adminInfo || !token) {
+      
+        navigate("/login");
+    
+        toast.error("Please log in to view this page");
+        return;
+      }
+    },[])
 
   return (
     <>

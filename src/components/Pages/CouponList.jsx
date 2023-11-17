@@ -8,6 +8,7 @@ import axios from "axios";
 import toast, { Toaster } from "react-hot-toast";
 import CouponEditModal from "../Modals/CouponEditModal";
 import AdminNav from "../AdminNav/AdminNav";
+import { useSelector } from "react-redux";
 
 
 
@@ -33,6 +34,22 @@ const CouponList = () => {
   const handleconfirm = () => {
 
   };
+
+
+  const { adminInfo } = useSelector((state) => state.admin);
+  const token=adminInfo.token
+  
+  
+    useEffect(()=>{
+      if (!adminInfo || !token) {
+      
+        navigate("/login");
+    
+        toast.error("Please log in to view this page");
+        return;
+      }
+    },[])
+
 
   useEffect(() => {
     const getcoupon = async () => {

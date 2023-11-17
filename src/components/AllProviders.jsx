@@ -7,6 +7,7 @@ import toast, { Toaster } from "react-hot-toast";
 
 import ProviderModal from "./Modals/ProviderModal";
 import AdminNav from "./AdminNav/AdminNav";
+import { useSelector } from "react-redux";
 
 const AllProviders = () => {
   const [providers, setProviders] = useState([]);
@@ -81,6 +82,21 @@ const AllProviders = () => {
   const confirmcloseunblock = () => {
     setUnblockModal(false);
   };
+
+  const { adminInfo } = useSelector((state) => state.admin);
+  const token=adminInfo.token
+  
+  
+    useEffect(()=>{
+      if (!adminInfo || !token) {
+      
+        navigate("/login");
+    
+        toast.error("Please log in to view this page");
+        return;
+      }
+    },[])
+
 
   return (
     <>

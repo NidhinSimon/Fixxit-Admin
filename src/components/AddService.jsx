@@ -10,6 +10,7 @@ import * as yup from "yup";
 import { useFormik } from "formik";
 import Spinner from "./Spinner";
 import AdminNav from "./AdminNav/AdminNav";
+import { useSelector } from "react-redux";
 
 const AddService = () => {
   const navigate = useNavigate();
@@ -86,6 +87,20 @@ const formik=useFormik({
       setServiceimage(file);
     }
   };
+
+  const { adminInfo } = useSelector((state) => state.admin);
+  const token=adminInfo.token
+  
+  
+    useEffect(()=>{
+      if (!adminInfo || !token) {
+      
+        navigate("/login");
+    
+        toast.error("Please log in to view this page");
+        return;
+      }
+    },[])
 
   // const handleSubmit = async (e) => {
   //   e.preventDefault();

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Navbar from "../Navbar";
 import toast, { Toaster } from "react-hot-toast";
+import { useSelector } from "react-redux";
 
 const AdminReports = () => {
   const [reports, setReports] = useState([]);
@@ -17,6 +18,20 @@ const AdminReports = () => {
     };
     fetchReports();
   }, []);
+
+  const { adminInfo } = useSelector((state) => state.admin);
+  const token=adminInfo.token
+  
+  
+    useEffect(()=>{
+      if (!adminInfo || !token) {
+      
+        navigate("/login");
+    
+        toast.error("Please log in to view this page");
+        return;
+      }
+    },[])
 
   const blockProvider = async (blockId) => {
     try {

@@ -4,6 +4,7 @@ import toast, { Toaster } from "react-hot-toast";
 import Navbar from "./Navbar";
 import BlockModal from "./Modals/BlockModal";
 import { Empty } from "antd";
+import { useSelector } from "react-redux";
 import AdminNav from "./AdminNav/AdminNav";
 
 const PAGE_SIZE = 3;
@@ -99,6 +100,21 @@ const AllUsers = () => {
   const startIndex = (currentPage - 1) * PAGE_SIZE;
   const endIndex = startIndex + PAGE_SIZE;
   const displayedUsers = filteredUsers.slice(startIndex, endIndex);
+
+
+  const { adminInfo } = useSelector((state) => state.admin);
+  const token=adminInfo.token
+  
+  
+    useEffect(()=>{
+      if (!adminInfo || !token) {
+      
+        navigate("/login");
+    
+        toast.error("Please log in to view this page");
+        return;
+      }
+    },[])
 
   return (
     <>

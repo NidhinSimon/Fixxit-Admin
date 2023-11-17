@@ -13,7 +13,19 @@ ChartJS.register(Tooltip, Title, ArcElement, Legend);
 const AdminDashboard = () => {
   const navigate = useNavigate();
   const { adminInfo } = useSelector((state) => state.admin);
+const token=adminInfo.token
 
+
+  useEffect(()=>{
+    if (!adminInfo || !token) {
+    
+      navigate("/login");
+  
+      toast.error("Please log in to view this page");
+      return;
+    }
+  },[])
+  
   useEffect(() => {
     if (adminInfo) {
       navigate("/dash");

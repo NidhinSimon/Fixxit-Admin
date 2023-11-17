@@ -8,6 +8,7 @@ import toast, { Toaster } from "react-hot-toast";
 import Modal from "./Modals/Modal";
 import { Empty } from "antd";
 import AdminNav from "./AdminNav/AdminNav";
+import { useSelector } from "react-redux";
 
 const Requests = () => {
   const [providers, setProvider] = useState([]);
@@ -80,6 +81,20 @@ const Requests = () => {
     setEmp(id);
     setVisible(true);
   };
+
+  const { adminInfo } = useSelector((state) => state.admin);
+  const token=adminInfo.token
+  
+  
+    useEffect(()=>{
+      if (!adminInfo || !token) {
+      
+        navigate("/login");
+    
+        toast.error("Please log in to view this page");
+        return;
+      }
+    },[])
 
   return (
     <>

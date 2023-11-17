@@ -30,6 +30,8 @@ function App() {
           <Routes>
             <Route path="/login" element={<AdminLogin />}></Route>
 
+            //private
+
             <Route path="" element={<AdminPrivateRoute />}>
               <Route path="/dashboard" element={<AdminHome />}></Route>
               <Route path="/add" element={<ADD />}></Route>

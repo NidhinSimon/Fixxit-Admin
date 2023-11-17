@@ -6,6 +6,7 @@ import Navbar from "./Navbar";
 
 import axios from "axios";
 import AdminNav from "./AdminNav/AdminNav";
+import { useSelector } from "react-redux";
 
 const AllCategory = () => {
   const [categories, setCategories] = useState([]);
@@ -62,6 +63,19 @@ const AllCategory = () => {
       console.error("Error updating category:", error);
     }
   };
+  const { adminInfo } = useSelector((state) => state.admin);
+  const token=adminInfo.token
+  
+  
+    useEffect(()=>{
+      if (!adminInfo || !token) {
+      
+        navigate("/login");
+    
+        toast.error("Please log in to view this page");
+        return;
+      }
+    },[])
 
   return (
     <>
