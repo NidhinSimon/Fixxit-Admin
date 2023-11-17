@@ -7,6 +7,7 @@ import CouponModal from "../Modals/CouponModal";
 import axios from "axios";
 import toast, { Toaster } from "react-hot-toast";
 import CouponEditModal from "../Modals/CouponEditModal";
+import AdminNav from "../AdminNav/AdminNav";
 
 
 
@@ -61,7 +62,7 @@ const CouponList = () => {
 
   return (
     <>
-      <Navbar />
+      <AdminNav />
       {couponadd && <CouponModal cancel={handleclosemodal} confirm={handleconfirm}/>}
       {editModal && <CouponEditModal cancel={canceledit} id={id} handle={""} />}
       <Toaster />
