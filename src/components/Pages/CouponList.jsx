@@ -54,8 +54,11 @@ const CouponList = () => {
 
 
   useEffect(() => {
+    const headers = {
+      Authorization: `Bearer ${token}`,
+    };
     const getcoupon = async () => {
-      const res = await axios.get("https://fixxit.shop/admin/getcoupon");
+      const res = await axios.get("https://fixxit.shop/admin/getcoupon",{headers});
       setcoupon(res.data);
     };
     getcoupon();

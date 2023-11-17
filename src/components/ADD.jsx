@@ -56,36 +56,49 @@ const ADD = () => {
             toast.error("some erro occured")
           }
         }
-       
+        
       }catch (error) {
         console.error('Error adding category:', error);
         toast.error('Failed to add category');
       } finally {
-       
+        
         setLoading(false);
       }
     }
   })
-
-  useEffect(() => {
   
+  const { adminInfo } = useSelector((state) => state.admin);
+  const token=adminInfo.adminToken
+  
+  
+    useEffect(()=>{
+      if (!adminInfo || !token) {
+      
+        navigate("/login");
+    
+       
+        return;
+      }
+    },[])
+  useEffect(() => {
+    
     const fetchCategories = async () => {
       try {
         const response = await axios.get(
           'https://fixxit.shop/admin/categories'
-        );
-        setExistingCategories(response.data);
-      } catch (error) {
-        console.error('Error fetching categories:', error);
-      }
-    };
-
-    fetchCategories();
-  }, []);
-
-
-  const handleFileChange = (e) => {
-    const file = e.target.files[0];
+          );
+          setExistingCategories(response.data);
+        } catch (error) {
+          console.error('Error fetching categories:', error);
+        }
+      };
+      
+      fetchCategories();
+    }, []);
+    
+    
+    const handleFileChange = (e) => {
+      const file = e.target.files[0];
     if (file) {
       const reader = new FileReader();
       reader.readAsDataURL(file);
@@ -104,19 +117,6 @@ const ADD = () => {
    
   // };
 
-  const { adminInfo } = useSelector((state) => state.admin);
-  const token=adminInfo.adminToken
-  
-  
-    useEffect(()=>{
-      if (!adminInfo || !token) {
-      
-        navigate("/login");
-    
-       
-        return;
-      }
-    },[])
 
   return (
     <>

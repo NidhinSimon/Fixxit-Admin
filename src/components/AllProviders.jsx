@@ -18,9 +18,27 @@ const AllProviders = () => {
   const [modal, setModal] = useState(false);
   const [unblock, setUnblockModal] = useState(false);
 
+  const { adminInfo } = useSelector((state) => state.admin);
+  const token=adminInfo.adminToken
+  const headers = {
+    Authorization: `Bearer ${token}`,
+  };
+  
+  
+    useEffect(()=>{
+      if (!adminInfo || !token) {
+      
+        navigate("/login");
+    
+      
+        return;
+      }
+    },[])
+
+
   useEffect(() => {
     const providers = async () => {
-      const res = await axios.get("https://fixxit.shop/allproviders");
+      const res = await axios.get("https://fixxit.shop/allproviders",{headers});
       console.log(res, "?????????????????????????????????????????????");
       setProviders(res.data);
     };
@@ -39,10 +57,13 @@ const AllProviders = () => {
     setBlockId(id);
   };
 
+
+
+
   const confirmBlock = async () => {
     try {
       setModal(false);
-      const res = await axios.put(`https://fixxit.shop/block/${blockId}`);
+      const res = await axios.put(`https://fixxit.shop/block/${blockId}`,{headers});
 
       if (res.data.message === "provider blocked successfully") {
         toast.success("provider blocked successfully");
@@ -64,7 +85,7 @@ const AllProviders = () => {
   const confirmUnblock = async () => {
     try {
       setUnblockModal(false);
-      const res = await axios.put(`https://fixxit.shop/unblock/${blockId}`);
+      const res = await axios.put(`https://fixxit.shop/unblock/${blockId}`,{headers});
       console.log(res);
       if (res.data.message === "user blocked sucessfully") {
         toast("User unblocked succesffully", {
@@ -85,19 +106,6 @@ const AllProviders = () => {
     setUnblockModal(false);
   };
 
-  const { adminInfo } = useSelector((state) => state.admin);
-  const token=adminInfo.adminToken
-  
-  
-    useEffect(()=>{
-      if (!adminInfo || !token) {
-      
-        navigate("/login");
-    
-      
-        return;
-      }
-    },[])
 
 
   return (

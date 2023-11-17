@@ -24,6 +24,25 @@ const AddService = () => {
   const [categories, setCategories] = useState([]);
   const [loading,setLoading]=useState(false)
 
+  const { adminInfo } = useSelector((state) => state.admin);
+  const token=adminInfo.adminToken
+  
+  
+    useEffect(()=>{
+      if (!adminInfo || !token) {
+      
+        navigate("/login");
+    
+       
+        return;
+      }
+    },[])
+
+    const headers = {
+      Authorization: `Bearer ${token}`,
+    };
+
+
   const validationSchema=yup.object().shape({
     title:yup.string().typeError("name must be alphabet").required("name is required"),
     description:yup.string().required("description is required"),
@@ -44,7 +63,7 @@ const formik=useFormik({
     try {
       const res = await axios.post("https://fixxit.shop/admin/addservice", {
        ...value,image:image
-      });
+      },{headers});
       console.log(res, ":::::::::::::::::::::::::::::::::::::::::::;;;;;");
       if (res.data.message === "Category added successfully") {
         toast.success("service added succesfullly");
@@ -59,7 +78,7 @@ const formik=useFormik({
   useEffect(() => {
     const categories = async () => {
       try {
-        const res = await axios.get("https://fixxit.shop/admin/categories");
+        const res = await axios.get("https://fixxit.shop/admin/categories",{headers});
         console.log(
           res,
           "--------------------------------------------------------"
@@ -88,19 +107,6 @@ const formik=useFormik({
     }
   };
 
-  const { adminInfo } = useSelector((state) => state.admin);
-  const token=adminInfo.adminToken
-  
-  
-    useEffect(()=>{
-      if (!adminInfo || !token) {
-      
-        navigate("/login");
-    
-       
-        return;
-      }
-    },[])
 
   // const handleSubmit = async (e) => {
   //   e.preventDefault();

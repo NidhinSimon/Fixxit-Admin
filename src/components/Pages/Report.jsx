@@ -34,8 +34,11 @@ const AdminReports = () => {
     },[])
 
   const blockProvider = async (blockId) => {
+    const headers = {
+      Authorization: `Bearer ${token}`,
+    };
     try {
-      const res = await axios.put(`https://fixxit.shop/block/${blockId}`);
+      const res = await axios.put(`https://fixxit.shop/block/${blockId}`,{headers});
 
       if (res.data.message === "provider blocked successfully") {
         toast.success("Provider blocked successfully");

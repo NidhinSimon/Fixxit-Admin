@@ -20,10 +20,30 @@ const AllUsers = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
 
+
+  const { adminInfo } = useSelector((state) => state.admin);
+  const token=adminInfo.adminToken
+  console.log(token,'00---------------00')
+  
+    useEffect(()=>{
+      if (!adminInfo || !token) {
+      
+        navigate("/login");
+    
+      
+        return;
+      }
+    },[])
+
+
+  const headers = {
+    Authorization: `Bearer ${token}`,
+  };
+
   useEffect(() => {
     const fetchUsers = async () => {
       try {
-        const res = await axios.get("https://fixxit.shop/admin/users");
+        const res = await axios.get("https://fixxit.shop/admin/users",{  headers: headers,});
         setUsers(res.data);
       } catch (error) {
         console.log(error.message);
@@ -104,19 +124,6 @@ const AllUsers = () => {
   const displayedUsers = filteredUsers.slice(startIndex, endIndex);
 
 
-  const { adminInfo } = useSelector((state) => state.admin);
-  const token=adminInfo.adminToken
-  console.log(token,'00---------------00')
-  
-    useEffect(()=>{
-      if (!adminInfo || !token) {
-      
-        navigate("/login");
-    
-      
-        return;
-      }
-    },[])
 
   return (
     <>
