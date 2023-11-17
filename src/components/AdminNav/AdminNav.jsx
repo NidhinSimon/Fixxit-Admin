@@ -110,16 +110,16 @@ const AdminNav = () => {
               <a
                 href="#"
                 className={`mt-2 transition-colors duration-300 transform lg:mt-0 lg:mx-4 hover:text-gray-900 dark:hover:text-gray-200 ${
-                  location.pathname === "/dash" ? "text-blue-500" : "text-black"
+                  location.pathname === "/ser" ? "text-blue-500" : "text-black"
                 } `}
-                onClick={()=>navigate('/service')}
+                onClick={()=>navigate('/ser')}
               >
                 Services
               </a>
               <a
                 href="#"
                 className={`mt-2 transition-colors duration-300 transform lg:mt-0 lg:mx-4 hover:text-gray-900 dark:hover:text-gray-200 ${
-                  location.pathname === "/dash" ? "text-blue-500" : "text-black"
+                  location.pathname === "/categories" ? "text-blue-500" : "text-black"
                 } `}
                 onClick={()=>navigate('/categories')}
               >
@@ -128,47 +128,52 @@ const AdminNav = () => {
               <a
                 href="#"
                 className={`mt-2 transition-colors duration-300 transform lg:mt-0 lg:mx-4 hover:text-gray-900 dark:hover:text-gray-200 ${
-                  location.pathname === "/dash" ? "text-blue-500" : "text-black"
+                  location.pathname === "/service" ? "text-blue-500" : "text-black"
                 } `}
+                onClick={()=>navigate('/service')}
               >
                 Add Service
               </a>
               <a
                 href="#"
                 className={`mt-2 transition-colors duration-300 transform lg:mt-0 lg:mx-4 hover:text-gray-900 dark:hover:text-gray-200 ${
-                  location.pathname === "/dash" ? "text-blue-500" : "text-black"
+                  location.pathname === "/add" ? "text-blue-500" : "text-black"
                 } `}
+                onClick={()=>navigate('/add')}
               >
                 Add Category
               </a>
               <a
                 href="#"
                 className={`mt-2 transition-colors duration-300 transform lg:mt-0 lg:mx-4 hover:text-gray-900 dark:hover:text-gray-200 ${
-                  location.pathname === "/dash" ? "text-blue-500" : "text-black"
+                  location.pathname === "/requests" ? "text-blue-500" : "text-black"
                 } `}
+                onClick={()=>navigate('/requests')}
               >
                 Verifications
               </a>
               <a
                 href="#"
                 className={`mt-2 transition-colors duration-300 transform lg:mt-0 lg:mx-4 hover:text-gray-900 dark:hover:text-gray-200 ${
-                  location.pathname === "/dash" ? "text-blue-500" : "text-black"
+                  location.pathname === "/providers" ? "text-blue-500" : "text-black"
                 } `}
+                onClick={()=>navigate('/providers')}
               >
                 Providers
               </a>
               <a
                 href="#"
                 className={`mt-2 transition-colors duration-300 transform lg:mt-0 lg:mx-4 hover:text-gray-900 dark:hover:text-gray-200 ${
-                  location.pathname === "/dash" ? "text-blue-500" : "text-black"
+                  location.pathname === "/coupons" ? "text-blue-500" : "text-black"
                 } `}
+                onClick={()=>navigate('/coupons')}
               >
                 Coupon
               </a>
               <a
                 href="#"
                 className={`mt-2 transition-colors duration-300 transform lg:mt-0 lg:mx-4 hover:text-gray-900 dark:hover:text-gray-200 ${
-                  location.pathname === "/dash" ? "text-blue-500" : "text-black"
+                  location.pathname === "/reports" ? "text-blue-500" : "text-black"
                 } `}
                 onClick={()=>navigate('/reports')}
               >

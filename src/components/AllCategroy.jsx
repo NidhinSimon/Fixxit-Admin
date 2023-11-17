@@ -5,6 +5,7 @@ import toast, { Toaster } from "react-hot-toast";
 import Navbar from "./Navbar";
 
 import axios from "axios";
+import AdminNav from "./AdminNav/AdminNav";
 
 const AllCategory = () => {
   const [categories, setCategories] = useState([]);
@@ -64,7 +65,7 @@ const AllCategory = () => {
 
   return (
     <>
-    <Navbar/>
+   <AdminNav/>
     <div className="flex flex-col md:flex-row">
      
       <Toaster />

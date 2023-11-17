@@ -8,6 +8,7 @@ import { setCredentials } from "../../Redux/adminSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { useEditServiceMutation } from "../../Redux/adminauth";
 import ProviderModal from "../components/Modals/ProviderModal";
+import AdminNav from "./AdminNav/AdminNav";
 
 const AllService = () => {
   const [edit] = useEditServiceMutation();
@@ -112,7 +113,7 @@ const AllService = () => {
 
   return (
     <>
-      <Navbar />
+    <AdminNav/>
 
       <div className="flex flex-col md:flex-row  ">
         <Toaster />

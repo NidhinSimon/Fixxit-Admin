@@ -7,6 +7,7 @@ import { Image } from "primereact/image";
 import toast, { Toaster } from "react-hot-toast";
 import Modal from "./Modals/Modal";
 import { Empty } from "antd";
+import AdminNav from "./AdminNav/AdminNav";
 
 const Requests = () => {
   const [providers, setProvider] = useState([]);
@@ -82,7 +83,7 @@ const Requests = () => {
 
   return (
     <>
-      <Navbar />
+   <AdminNav/>
 
       <Toaster />
       {visible && (

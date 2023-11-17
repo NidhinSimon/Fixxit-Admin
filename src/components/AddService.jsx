@@ -9,6 +9,7 @@ import Navbar from "./Navbar";
 import * as yup from "yup";
 import { useFormik } from "formik";
 import Spinner from "./Spinner";
+import AdminNav from "./AdminNav/AdminNav";
 
 const AddService = () => {
   const navigate = useNavigate();
@@ -110,7 +111,7 @@ const formik=useFormik({
   // };
   return (
     <>
-      <Navbar />
+    <AdminNav/>
       <div>
         <Toaster />
 {

@@ -6,6 +6,7 @@ import axios from "axios";
 import toast, { Toaster } from "react-hot-toast";
 
 import ProviderModal from "./Modals/ProviderModal";
+import AdminNav from "./AdminNav/AdminNav";
 
 const AllProviders = () => {
   const [providers, setProviders] = useState([]);
@@ -83,7 +84,7 @@ const AllProviders = () => {
 
   return (
     <>
-      <Navbar />
+    <AdminNav/>
       <Toaster />
       <div className="p-16">
         <div className="relative overflow-x-auto shadow-md sm:rounded-lg mt-10">
