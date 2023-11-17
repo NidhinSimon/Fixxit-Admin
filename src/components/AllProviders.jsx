@@ -8,8 +8,10 @@ import toast, { Toaster } from "react-hot-toast";
 import ProviderModal from "./Modals/ProviderModal";
 import AdminNav from "./AdminNav/AdminNav";
 import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 const AllProviders = () => {
+  const navigate = useNavigate();
   const [providers, setProviders] = useState([]);
 
   const [blockId, setBlockId] = useState(null);

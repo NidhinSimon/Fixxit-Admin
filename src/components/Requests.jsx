@@ -9,8 +9,10 @@ import Modal from "./Modals/Modal";
 import { Empty } from "antd";
 import AdminNav from "./AdminNav/AdminNav";
 import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 const Requests = () => {
+  const navigate = useNavigate();
   const [providers, setProvider] = useState([]);
   const [visible, setVisible] = useState(false);
   const [emp, setEmp] = useState(null);

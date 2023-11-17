@@ -9,6 +9,7 @@ import toast, { Toaster } from "react-hot-toast";
 import CouponEditModal from "../Modals/CouponEditModal";
 import AdminNav from "../AdminNav/AdminNav";
 import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 
 
@@ -18,6 +19,7 @@ function formatDate(dateString) {
 }
 
 const CouponList = () => {
+  const navigate = useNavigate();
   const [couponadd, setcouponadd] = useState(false);
   const [coupon, setcoupon] = useState([]);
   const [editModal, seteditModal] = useState(false);

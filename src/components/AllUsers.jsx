@@ -6,10 +6,12 @@ import BlockModal from "./Modals/BlockModal";
 import { Empty } from "antd";
 import { useSelector } from "react-redux";
 import AdminNav from "./AdminNav/AdminNav";
+import { useNavigate } from "react-router-dom";
 
 const PAGE_SIZE = 3;
 
 const AllUsers = () => {
+  const navigate = useNavigate();
   const [users, setUsers] = useState([]);
   const [modal, setModal] = useState(false);
   const [userId, setUserId] = useState(null);

@@ -7,9 +7,11 @@ import Navbar from "./Navbar";
 import axios from "axios";
 import AdminNav from "./AdminNav/AdminNav";
 import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 const AllCategory = () => {
   const [categories, setCategories] = useState([]);
+  const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
   const [editCategory, setEditCategory] = useState(null);
 
