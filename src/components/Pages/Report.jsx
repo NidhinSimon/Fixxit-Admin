@@ -3,9 +3,11 @@ import axios from "axios";
 import Navbar from "../Navbar";
 import toast, { Toaster } from "react-hot-toast";
 import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 const AdminReports = () => {
   const [reports, setReports] = useState([]);
+  const navigate=useNavigate()
 
   useEffect(() => {
     const fetchReports = async () => {
