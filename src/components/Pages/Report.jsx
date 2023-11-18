@@ -9,18 +9,6 @@ const AdminReports = () => {
   const [reports, setReports] = useState([]);
   const navigate=useNavigate()
 
-  useEffect(() => {
-    const fetchReports = async () => {
-      try {
-        const response = await axios.get("https://fixxit.shop/admin/reports");
-        setReports(response.data);
-      } catch (error) {
-        console.error("Error fetching reports:", error);
-      }
-    };
-    fetchReports();
-  }, []);
-
   const { adminInfo } = useSelector((state) => state.admin);
   const token=adminInfo.adminToken
   
@@ -34,6 +22,20 @@ const AdminReports = () => {
         return;
       }
     },[])
+
+  useEffect(() => {
+    const fetchReports = async () => {
+      try {
+        const response = await axios.get("https://fixxit.shop/admin/reports");
+        setReports(response.data);
+      } catch (error) {
+        console.error("Error fetching reports:", error);
+      }
+    };
+    fetchReports();
+  }, []);
+
+
 
   const blockProvider = async (blockId) => {
     const headers = {
