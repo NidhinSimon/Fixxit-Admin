@@ -22,7 +22,7 @@ console.log(res,'----ttttttttttttttttttttt----')
   };
 
 
-  
+
 
   return (
     <nav
@@ -193,7 +193,7 @@ console.log(res,'----ttttttttttttttttttttt----')
                 <span className="mr-2">Logout</span>
                 <img
                   className="w-8 h-6"
-                  src="/src/assets/logout.png"
+                  src="/logout.png"
                   alt="eee"
                 />
               </button>
